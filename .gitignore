@@ -14,5 +14,5 @@ server/terraform/terraform.tfvars
 # OS
 .DS_Store
 
-# Certbot certs (generated on server, not in git)
-proxy/certbot/
+# SSL certs (origin certs are placed on server manually, never committed)
+proxy/certs/

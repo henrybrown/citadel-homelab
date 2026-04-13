@@ -1,28 +1,18 @@
 #!/bin/bash
 set -e
 
-DOMAIN="citadel.hbprojects.app"
-EMAIL="henry.e.brown@icloud.com"
 APP_DIR="/opt/citadel"
-
 cd "$APP_DIR"
 
-echo "=== Generating SSL certificates ==="
+# Check origin certs exist
+if [ ! -f "proxy/certs/origin.pem" ] || [ ! -f "proxy/certs/origin-key.pem" ]; then
+  echo "ERROR: Origin certificates not found at proxy/certs/"
+  echo "Generate them in Cloudflare: SSL/TLS → Origin Server → Create Certificate"
+  echo "Then save origin.pem and origin-key.pem to proxy/certs/ on this server"
+  exit 1
+fi
 
-mkdir -p proxy/certbot/conf
-
-docker run --rm -p 80:80 \
-  -v "$APP_DIR/proxy/certbot/conf:/etc/letsencrypt" \
-  certbot/certbot certonly \
-  --standalone \
-  --non-interactive \
-  -d "$DOMAIN" \
-  -d "citadel-vault.hbprojects.app" \
-  -d "citadel-monitor.hbprojects.app" \
-  -d "citadel-logs.hbprojects.app" \
-  --agree-tos \
-  -m "$EMAIL"
-
+echo "=== Origin certs found ==="
 echo "=== Starting all services ==="
 docker compose up -d
 
