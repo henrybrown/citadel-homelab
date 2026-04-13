@@ -7,7 +7,7 @@
 
 # ── Access application for Vault ──
 resource "cloudflare_zero_trust_access_application" "vault" {
-  zone_id          = var.cloudflare_zone_id
+  account_id          = var.cloudflare_account_id
   name             = "Citadel Vault"
   domain           = "citadel-vault.hbprojects.app"
   type             = "self_hosted"
@@ -15,7 +15,7 @@ resource "cloudflare_zero_trust_access_application" "vault" {
 }
 
 resource "cloudflare_zero_trust_access_policy" "vault_policy" {
-  zone_id        = var.cloudflare_zone_id
+  account_id        = var.cloudflare_account_id
   application_id = cloudflare_zero_trust_access_application.vault.id
   name           = "Allow admin"
   decision       = "allow"
@@ -28,7 +28,7 @@ resource "cloudflare_zero_trust_access_policy" "vault_policy" {
 
 # ── Access application for Uptime Kuma ──
 resource "cloudflare_zero_trust_access_application" "monitor" {
-  zone_id          = var.cloudflare_zone_id
+  account_id          = var.cloudflare_account_id
   name             = "Citadel Monitor"
   domain           = "citadel-monitor.hbprojects.app"
   type             = "self_hosted"
@@ -36,7 +36,7 @@ resource "cloudflare_zero_trust_access_application" "monitor" {
 }
 
 resource "cloudflare_zero_trust_access_policy" "monitor_policy" {
-  zone_id        = var.cloudflare_zone_id
+  account_id        = var.cloudflare_account_id
   application_id = cloudflare_zero_trust_access_application.monitor.id
   name           = "Allow admin"
   decision       = "allow"
@@ -49,7 +49,7 @@ resource "cloudflare_zero_trust_access_policy" "monitor_policy" {
 
 # ── Access application for Dozzle ──
 resource "cloudflare_zero_trust_access_application" "logs" {
-  zone_id          = var.cloudflare_zone_id
+  account_id          = var.cloudflare_account_id
   name             = "Citadel Logs"
   domain           = "citadel-logs.hbprojects.app"
   type             = "self_hosted"
@@ -57,7 +57,7 @@ resource "cloudflare_zero_trust_access_application" "logs" {
 }
 
 resource "cloudflare_zero_trust_access_policy" "logs_policy" {
-  zone_id        = var.cloudflare_zone_id
+  account_id        = var.cloudflare_account_id
   application_id = cloudflare_zero_trust_access_application.logs.id
   name           = "Allow admin"
   decision       = "allow"
