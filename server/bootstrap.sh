@@ -26,13 +26,20 @@ docker run --rm -p 80:80 \
 echo "=== Starting all services ==="
 docker compose up -d
 
-echo ""
-echo "=== Citadel is running ==="
-echo ""
-echo "  Vault:   https://vault.$DOMAIN"
-echo "  Monitor: https://monitor.$DOMAIN"
-echo "  Logs:    https://logs.$DOMAIN"
-echo ""
-echo "  NEXT: Visit Vault URL to initialize."
-echo "  Save your unseal key and root token somewhere safe."
-echo ""
+cat << BANNER
+
+     _____ _ _            _      _
+    / ____(_) |          | |    | |
+   | |     _| |_ __ _  __| | ___| |
+   | |    | | __/ _' |/ _' |/ _ \ |
+   | |____| | || (_| | (_| |  __/ |
+    \_____|_|\__\__,_|\__,_|\___|_|
+
+  Vault:   https://vault.$DOMAIN
+  Monitor: https://monitor.$DOMAIN
+  Logs:    https://logs.$DOMAIN
+
+  NEXT: Visit Vault URL to initialize.
+  Save your unseal key and root token somewhere safe.
+
+BANNER

@@ -21,7 +21,7 @@ provider "cloudflare" {
 }
 
 resource "hcloud_ssh_key" "default" {
-  name       = "${var.server_name}-key"
+  name       = "hb-deploy-key"
   public_key = file(var.ssh_public_key_path)
 }
 
