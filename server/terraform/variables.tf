@@ -44,3 +44,14 @@ variable "subdomain" {
   type        = string
   default     = "citadel"
 }
+
+variable "cloudflare_account_id" {
+  description = "Cloudflare account ID (different from zone ID)"
+  type        = string
+}
+
+variable "admin_email" {
+  description = "Email address allowed to access citadel services"
+  type        = string
+  default     = "henry.e.brown@icloud.com"
+}

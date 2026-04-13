@@ -98,14 +98,32 @@ resource "cloudflare_record" "citadel" {
   content = hcloud_server.citadel.ipv4_address
   type    = "A"
   ttl     = 1
-  proxied = false
+  proxied = true
 }
 
-resource "cloudflare_record" "citadel_wildcard" {
+resource "cloudflare_record" "citadel_vault" {
   zone_id = var.cloudflare_zone_id
-  name    = "*.${var.subdomain}"
+  name    = "vault.${var.subdomain}"
   content = hcloud_server.citadel.ipv4_address
   type    = "A"
   ttl     = 1
-  proxied = false
+  proxied = true
+}
+
+resource "cloudflare_record" "citadel_monitor" {
+  zone_id = var.cloudflare_zone_id
+  name    = "monitor.${var.subdomain}"
+  content = hcloud_server.citadel.ipv4_address
+  type    = "A"
+  ttl     = 1
+  proxied = true
+}
+
+resource "cloudflare_record" "citadel_logs" {
+  zone_id = var.cloudflare_zone_id
+  name    = "logs.${var.subdomain}"
+  content = hcloud_server.citadel.ipv4_address
+  type    = "A"
+  ttl     = 1
+  proxied = true
 }
