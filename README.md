@@ -1,6 +1,6 @@
 # Citadel
 
-Citadel is the central infrastructure server for all hbprojects.app projects. It runs on a single Hetzner VPS and hosts shared services (secrets management, uptime monitoring, log viewing) alongside static demo apps. Everything is deployed automatically via GitHub Actions on push to main.
+Citadel is the central infrastructure server for all hbprojects.app projects. It runs on a single Hetzner VPS and hosts shared services (secrets management, uptime monitoring, log viewing) alongside static demo apps. The server and all supporting resources (DNS, firewall, access policies) are provisioned with Terraform as infrastructure as code. Everything is deployed automatically via GitHub Actions on push to main.
 
 ## How it works
 
