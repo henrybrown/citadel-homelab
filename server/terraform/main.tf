@@ -127,3 +127,12 @@ resource "cloudflare_record" "citadel_logs" {
   ttl     = 1
   proxied = true
 }
+
+resource "cloudflare_record" "music_visualiser" {
+  zone_id = var.cloudflare_zone_id
+  name    = "music-visualiser"
+  content = hcloud_server.citadel.ipv4_address
+  type    = "A"
+  ttl     = 1
+  proxied = true
+}

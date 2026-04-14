@@ -2,4 +2,5 @@ include:
   - vault/docker-compose.yml
   - monitoring/docker-compose.yml
   - logs/docker-compose.yml
+  - demos/music-visualiser/docker-compose.yml
   - proxy/docker-compose.yml

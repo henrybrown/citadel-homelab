@@ -1,0 +1,8 @@
+services:
+  music-visualiser:
+    image: nginx:alpine
+    container_name: citadel-music-visualiser
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./dist:/usr/share/nginx/html:ro
