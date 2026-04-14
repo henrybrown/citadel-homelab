@@ -42,7 +42,7 @@ If they expire, regenerate in Cloudflare and copy to the server at `/opt/citadel
 1. Add a `server` block in `nginx.conf` with the appropriate `server_name` and `proxy_pass`
 2. Add the subdomain to the HTTP redirect `server` block at the top
 3. For services needing WebSocket support, include the `Upgrade` and `Connection` headers (see the monitor/logs blocks for examples)
-4. Push to main — nginx reloads automatically after deploy
+4. Push to main - nginx reloads automatically after deploy
 
 ### Adding a route for a demo app
 
