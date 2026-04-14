@@ -1,4 +1,4 @@
-# Citadel — Infrastructure Homelab
+# Citadel - Infrastructure Homelab
 
 Central infrastructure server for hbprojects.app projects.
 
